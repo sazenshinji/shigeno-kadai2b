@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,15 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [ProductController::class, 'products']);
 
+/* 商品一覧表示画面 */
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 /* 商品登録画面 */
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-/* 商品一覧表示画面 */
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+// 編集
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+
+// 削除
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
