@@ -1,54 +1,52 @@
 @extends('layouts.app')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/index.css') }}" />
+@endsection
+
 @section('content')
 <div class="container">
-  <h2>製品一覧</h2>
+  <h1>商品一覧</h1>
 
-  {{-- 新規登録ページへのリンク --}}
-  <div style="margin-bottom:15px;">
-    <a href="{{ route('products.create') }}">＋ 新規製品登録</a>
+  <div class="mb-3">
+    <form action="{{ route('products.index') }}" method="GET" class="d-flex" style="gap: 10px;">
+      <input type="text" name="keyword" class="form-control"
+        placeholder="商品名で検索"
+        value="{{ old('keyword', $keyword) }}">
+      <button type="submit" class="btn btn-primary">検索</button>
+    </form>
   </div>
 
-  {{-- 一覧表 --}}
-  <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse: collapse;">
-    <thead style="background:#f0f0f0;">
-      <tr>
-        <th>ID</th>
-        <th>製品名</th>
-        <th>価格</th>
-        <th>画像</th>
-        <th>説明</th>
-        <th>登録日時</th>
-      </tr>
-    </thead>
-    <tbody>
-      @forelse ($products as $product)
-      <tr>
-        <td>{{ $product->id }}</td>
-        <td>{{ $product->name }}</td>
-        <td>{{ number_format($product->price) }} 円</td>
-        <td>
-          @if($product->image)
-          <img src="{{ asset('storage/' . $product->image) }}"
-            alt="製品画像" style="max-width:100px;">
-          @else
-          なし
-          @endif
-        </td>
-        <td>{{ $product->description }}</td>
-        <td>{{ $product->created_at->format('Y-m-d H:i') }}</td>
-      </tr>
-      @empty
-      <tr>
-        <td colspan="6" style="text-align:center;">登録された製品はありません。</td>
-      </tr>
-      @endforelse
-    </tbody>
-  </table>
+  <a href="{{ route('products.create') }}" class="btn btn-success mb-3">商品を追加</a>
 
-  {{-- ページネーション --}}
-  <div style="margin-top:15px;">
-    {{ $products->links() }}
+  @if (session('success'))
+  <div class="alert alert-success">{{ session('success') }}</div>
+  @endif
+
+  <div class="product-grid">
+    @forelse ($products as $product)
+    <a href="{{ route('products.show', $product) }}" class="product-card-link">
+      <div class="product-card">
+        <div class="product-image">
+          @if ($product->image)
+          <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+          @else
+          <img src="https://via.placeholder.com/200" alt="no image">
+          @endif
+        </div>
+        <div class="product-info">
+          <h5>{{ $product->name }}</h5>
+          <p class="price">¥{{ number_format($product->price) }}</p>
+        </div>
+      </div>
+    </a>
+    @empty
+    <p>商品が見つかりませんでした。</p>
+    @endforelse
+  </div>
+
+  <div class="mt-3">
+    {{ $products->appends(['keyword' => $keyword])->links() }}
   </div>
 </div>
 @endsection

@@ -15,16 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ProductController::class, 'products']);
-
-/* 商品一覧表示画面 */
+/* 商品一覧画面 */
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
 /* 商品登録画面 */
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
-// 編集
-Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+// 詳細（編集画面）
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+
+// 更新
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 
 // 削除

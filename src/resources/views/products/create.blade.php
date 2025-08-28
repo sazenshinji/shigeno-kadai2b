@@ -2,18 +2,12 @@
 
 @section('content')
 <div class="container">
-  <h2>製品登録</h2>
+  <h1>商品登録</h1>
 
-  @if(session('success'))
-  <div style="color:green;">{{ session('success') }}</div>
-  @endif
-
-  @if($errors->any())
-  <div style="color:red;">
+  @if ($errors->any())
+  <div class="alert alert-danger">
     <ul>
-      @foreach($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
+      @foreach ($errors->all() as $error) <li>{{ $error }}</li> @endforeach
     </ul>
   </div>
   @endif
@@ -21,52 +15,50 @@
   <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
-    <div>
-      <label for="name">製品名</label><br>
-      <input type="text" name="name" value="{{ old('name') }}">
+    <div class="mb-3">
+      <label>商品名</label>
+      <input type="text" name="name" class="form-control" value="{{ old('name') }}">
     </div>
 
-    <div>
-      <label for="price">価格</label><br>
-      <input type="number" name="price" value="{{ old('price') }}">
+    <div class="mb-3">
+      <label>価格</label>
+      <input type="number" name="price" class="form-control" value="{{ old('price') }}">
     </div>
 
-    <div>
+    <div class="mb-3">
       <label>季節</label><br>
-      @foreach($seasons as $season)
-      <label style="margin-right:10px;">
-        <input type="radio" name="season_id" value="{{ $season->id }}"
-          {{ old('season_id') == $season->id ? 'checked' : '' }}>
-        {{ $season->name }}
-      </label>
+      @foreach ($seasons as $season)
+      <input type="radio" name="season_id" value="{{ $season->id }}"
+        {{ old('season_id') == $season->id ? 'checked' : '' }}>
+      {{ $season->name }}
       @endforeach
     </div>
 
-    <div>
-      <label for="image">製品画像</label><br>
-      <input type="file" name="image" id="image" accept="image/*" onchange="previewImage(event)">
-      <br>
-      <img id="preview" src="#" style="max-width:200px; display:none; margin-top:10px;">
+    <div class="mb-3">
+      <label>商品説明</label>
+      <textarea name="description" class="form-control">{{ old('description') }}</textarea>
     </div>
 
-    <div>
-      <label for="description">説明</label><br>
-      <textarea name="description" rows="5">{{ old('description') }}</textarea>
+    <div class="mb-3">
+      <label>商品画像</label>
+      <input type="file" name="image" class="form-control" accept="image/*" onchange="previewImage(event)">
+      <div class="mt-2">
+        <img id="preview" src="#" alt="プレビュー画像" style="max-width:200px; display:none;">
+      </div>
     </div>
 
-    <div style="margin-top:15px;">
-      <button type="submit">登録</button>
-    </div>
+    <button type="submit" class="btn btn-primary">登録</button>
+    <a href="{{ route('products.index') }}" class="btn btn-secondary">戻る</a>
   </form>
 </div>
 
 <script>
   function previewImage(event) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const preview = document.getElementById('preview');
-      preview.src = e.target.result;
-      preview.style.display = 'block';
+    let reader = new FileReader();
+    reader.onload = function() {
+      let output = document.getElementById('preview');
+      output.src = reader.result;
+      output.style.display = 'block';
     };
     reader.readAsDataURL(event.target.files[0]);
   }

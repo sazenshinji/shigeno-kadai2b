@@ -159,3 +159,8 @@
     color: #fff;
     cursor: pointer;
 }
+
+form input::placeholder {
+    color: #aaa;
+    /* 薄い灰色 */
+}
