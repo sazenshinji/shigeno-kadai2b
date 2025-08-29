@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\Season;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreRequest;
+use App\Http\Requests\UpdateRequest;
 
 class ProductController extends Controller
 {
@@ -46,15 +48,8 @@ class ProductController extends Controller
     }
 
     // 商品登録処理
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $request->validate([
-            'name'        => 'required|string|max:255',
-            'price'       => 'required|integer',
-            'description' => 'nullable|string',
-            'season_id'   => 'required|exists:seasons,id',
-            'image'       => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
-        ]);
 
         $imagePath = null;
         if ($request->hasFile('image')) {
@@ -80,15 +75,8 @@ class ProductController extends Controller
     }
 
     // 商品更新処理
-    public function update(Request $request, Product $product)
+    public function update(UpdateRequest $request, Product $product)
     {
-        $request->validate([
-            'name'        => 'required|string|max:255',
-            'price'       => 'required|integer',
-            'description' => 'nullable|string',
-            'season_id'   => 'required|exists:seasons,id',
-            'image'       => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
-        ]);
 
         // 新しい画像があれば更新
         if ($request->hasFile('image')) {

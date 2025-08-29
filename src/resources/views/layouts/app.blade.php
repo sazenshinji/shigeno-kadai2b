@@ -18,13 +18,6 @@
         <a class="header__logo" href="/">
           mogitate
         </a>
-       <nav>
-         <ul class="header-nav">
-           <li class="header-nav__item">
-             <a class="header-nav__link" href="/categories">カテゴリ一覧</a>
-           </li>
-         </ul>
-       </nav>
      </div>
     </div>
   </header>

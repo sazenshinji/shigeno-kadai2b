@@ -22,10 +22,20 @@
       <label>商品名</label>
       <input type="text" name="name" class="form-control" value="{{ old('name', $product->name) }}">
     </div>
+    <div class="create-form__error-message">
+      @error('name')
+      {{ $message }}
+      @enderror
+    </div>
 
     <div class="mb-3">
       <label>価格</label>
       <input type="number" name="price" class="form-control" value="{{ old('price', $product->price) }}">
+      <div class="create-form__error-message">
+        @error('price')
+        {{ $message }}
+        @enderror
+      </div>
     </div>
 
     <div class="mb-3">
@@ -35,11 +45,21 @@
         {{ $product->season_id == $season->id ? 'checked' : '' }}>
       {{ $season->name }}
       @endforeach
+      <div class="create-form__error-message">
+        @error('season_id')
+        {{ $message }}
+        @enderror
+      </div>
     </div>
 
     <div class="mb-3">
       <label>商品説明</label>
       <textarea name="description" class="form-control">{{ old('description', $product->description) }}</textarea>
+      <div class="create-form__error-message">
+        @error('description')
+        {{ $message }}
+        @enderror
+      </div>
     </div>
 
     <a href="{{ route('products.index') }}" class="btn btn-secondary">戻る</a>
