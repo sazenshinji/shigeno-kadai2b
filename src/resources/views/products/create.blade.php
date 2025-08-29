@@ -16,13 +16,13 @@
     @csrf
 
     <div class="mb-3">
-      <label>商品名</label>
-      <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+      <label for="name">商品名</label>
+      <input type="text" name="name" id="name" class="form-control" placeholder="商品名を入力" value="{{ old('name') }}">
     </div>
 
     <div class="mb-3">
-      <label>価格</label>
-      <input type="number" name="price" class="form-control" value="{{ old('price') }}">
+      <label for="price">価格</label>
+      <input type="number" name="price" id="price" class="form-control" placeholder="値段を入力" value="{{ old('price') }}">
     </div>
 
     <div class="mb-3">
@@ -35,8 +35,8 @@
     </div>
 
     <div class="mb-3">
-      <label>商品説明</label>
-      <textarea name="description" class="form-control">{{ old('description') }}</textarea>
+      <label for="description">商品説明</label>
+      <textarea name="description" id="description" class="form-control" placeholder="商品の説明を入力">{{ old('description') }}</textarea>
     </div>
 
     <div class="mb-3">

@@ -20,11 +20,20 @@ class ProductController extends Controller
             $query->where('name', 'like', "%{$keyword}%");
         }
 
+        // 価格順ソート
+        $sort = $request->input('sort');
+        if ($sort === 'high') {
+            $query->orderBy('price', 'desc');
+        } elseif ($sort === 'low') {
+            $query->orderBy('price', 'asc');
+        }
+
         $products = $query->paginate(6);
 
         return view('products.index', [
             'products' => $products,
-            'keyword' => $request->input('keyword') // 入力保持用
+            'keyword'  => $request->input('keyword'),
+            'sort'     => $sort,
         ]);
     }
 

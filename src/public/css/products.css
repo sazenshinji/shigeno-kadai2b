@@ -164,3 +164,15 @@ form input::placeholder {
     color: #aaa;
     /* 薄い灰色 */
 }
+
+form input::placeholder,
+form select:invalid {
+    color: #aaa;
+    /* 薄い灰色 */
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
