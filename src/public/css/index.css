@@ -22,6 +22,100 @@
   }
 
 
+
+/* コンテナ全体 */
+.product-list-container {
+    width: 90%;
+    margin: 20px auto;
+    font-family: sans-serif;
+}
+
+/* ヘッダー */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.list-header .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.list-header .btn-add {
+    background: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.list-header .btn-add:hover {
+    background: #0056b3;
+}
+
+
+/* コンテンツ全体 */
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+/* サイドバー */
+.sidebar {
+    width: 220px;
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.search-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.search-form button {
+    width: 100%;
+    padding: 8px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-form button:hover {
+    background: #0056b3;
+}
+
+/* 並べ替え */
+.sort-section {
+    margin-top: 20px;
+}
+
+.sort-section p {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.sort-section select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.active-sort {
+    background: #eee;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+
 /* 商品一覧カードのレイアウト */
 .product-grid {
     display: grid;
@@ -69,4 +163,10 @@
 .product-card-link {
     text-decoration: none;
     color: inherit;
+}
+
+/* ページネーション中央寄せ */
+.pagination-wrapper {
+    margin-top: 30px;
+    text-align: center;
 }

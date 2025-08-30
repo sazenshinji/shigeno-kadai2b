@@ -14,11 +14,11 @@
 <body>
   <header class="header">
     <div class="header__inner">
-     <div class="header-utilities">
-        <a class="header__logo" href="/">
+      <div class="header-utilities">
+        <a class="header__logo" href="/products">
           mogitate
         </a>
-     </div>
+      </div>
     </div>
   </header>
   <main>
