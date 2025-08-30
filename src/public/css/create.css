@@ -33,10 +33,16 @@
 
 /* ラベル */
 .form-group label {
-    display: block;
+    /* display: block; */
+    display: inline;
     margin-bottom: 5px;
     font-weight: bold;
     color: #555;
+}
+
+.create-form__required {
+    background-color: red;
+    color: white;
 }
 
 /* テキストボックスやテキストエリア */
@@ -61,7 +67,7 @@ textarea {
     cursor: pointer;
 }
 
-/* [変更を保存]ボタン */
+/* [登録]ボタン */
 .btn-submit {
     background: #f5c900;
     color: rgb(5, 5, 5);
@@ -72,7 +78,7 @@ textarea {
     cursor: pointer;
 }
 .btn-submit:hover {
-    background: #0056b3;
+    background: #ffa929;
 }
 
 

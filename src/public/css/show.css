@@ -1,0 +1,120 @@
+.product-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto;
+    max-width: 900px;
+    font-family: Arial, sans-serif;
+}
+
+.product-detail-card {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* 左側画像 */
+.product-image-area {
+    flex: 1;
+    text-align: center;
+}
+
+.product-image-area img {
+    max-width: 250px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.file-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-input {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.file-name {
+    font-size: 14px;
+    color: #555;
+}
+
+/* 右側商品情報 */
+.product-info-area {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.product-info-area label {
+    font-weight: bold;
+}
+
+.product-info-area input[type="text"],
+.product-info-area input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.season-radio {
+    display: flex;
+    gap: 20px;
+}
+
+/* 商品説明 */
+.product-description {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.product-description textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+/* ボタン */
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.button-group a,
+.button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-back {
+    background-color: #777;
+}
+
+.btn-save {
+    background-color: #28a745;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+
+/* バリデーションエラー */
+.create-form__error-message {
+    color: red;
+}

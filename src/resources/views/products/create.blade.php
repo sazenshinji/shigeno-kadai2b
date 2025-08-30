@@ -13,7 +13,7 @@
 
     <!-- 商品名 -->
     <div class="form-group">
-      <label for="name">商品名</label>
+      <label for="name">商品名</label> <span class="create-form__required">必須</span>
       <input type="text" name="name" id="name" class="form-control" placeholder="商品名を入力" value="{{ old('name') }}">
       <div class="create-form__error-message">
         @error('name')
@@ -24,7 +24,7 @@
 
     <!-- 価格 -->
     <div class="form-group">
-      <label for="price">価格</label>
+      <label for="price">値段</label> <span class="create-form__required">必須</span>
       <input type="number" name="price" id="price" class="form-control" placeholder="値段を入力" value="{{ old('price') }}">
       <div class="create-form__error-message">
         @error('price')
@@ -35,7 +35,7 @@
 
     <!-- 季節 -->
     <div class="form-group">
-      <label>季節</label><br>
+      <label>季節</label> <span class="create-form__required">必須</span><br>
       @foreach ($seasons as $season)
       <label>
         <input type="radio" name="season_id" value="{{ $season->id }}"
@@ -52,7 +52,7 @@
 
     <!-- 商品説明 -->
     <div class="form-group">
-      <label for="description">商品説明</label>
+      <label for="description">商品説明</label> <span class="create-form__required">必須</span>
       <textarea name="description" id="description" class="form-control" rows="4" placeholder="商品の説明を入力">{{ old('description') }}</textarea>
       <div class="create-form__error-message">
         @error('description')
@@ -63,7 +63,7 @@
 
     <!-- 商品画像 -->
     <div class="form-group">
-      <label for="image">商品画像</label>
+      <label for="image">商品画像</label> <span class="create-form__required">必須</span>
       <input type="file" name="image" id="image" class="form-control-file" accept="image/*" onchange="previewImage(event)">
       <div class="form-group-2">
         <img id="preview" src="#" alt="プレビュー画像" style="max-width:200px; display:none;">

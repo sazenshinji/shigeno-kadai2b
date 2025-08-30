@@ -44,15 +44,14 @@
 }
 
 .list-header .btn-add {
-    background: #007bff;
-    color: white;
+    background: #f5c900;
     padding: 8px 15px;
     border-radius: 5px;
     text-decoration: none;
 }
 
 .list-header .btn-add:hover {
-    background: #0056b3;
+    background: #ffa929;
 }
 
 
@@ -80,14 +79,13 @@
 .search-form button {
     width: 100%;
     padding: 8px;
-    background: #007bff;
-    color: white;
+    background: #f5c900;
     border: none;
     border-radius: 5px;
 }
 
 .search-form button:hover {
-    background: #0056b3;
+    background: #ffa929;
 }
 
 /* 並べ替え */
