@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 /* 商品登録画面 */
-Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::get('/products/register', [ProductController::class, 'register'])->name('products.register');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
 // 詳細（編集画面）

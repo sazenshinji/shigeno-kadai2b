@@ -41,10 +41,10 @@ class ProductController extends Controller
 
 
     // 登録画面表示
-    public function create()
+    public function register()
     {
         $seasons = Season::all(); // 春夏秋冬を取得
-        return view('products.create', compact('seasons'));
+        return view('products.register', compact('seasons'));
     }
 
     // 商品登録処理

@@ -61,8 +61,7 @@ nginx version: nginx/1.21.1
 
 商品詳細：http://localhost/products/{productId}
 
-商品登録：/products/register
-http://localhost/products/create
+商品登録：http://localhost/products/register
 
 
 ## ER図

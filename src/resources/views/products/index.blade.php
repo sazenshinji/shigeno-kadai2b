@@ -10,7 +10,7 @@
   <!-- ヘッダー -->
   <div class="list-header">
     <h1 class="title">商品一覧</h1>
-    <a href="{{ route('products.create') }}" class="btn-add">＋商品を追加</a>
+    <a href="{{ route('products.register') }}" class="btn-add">＋商品を追加</a>
   </div>
 
   <div class="content-wrapper">
