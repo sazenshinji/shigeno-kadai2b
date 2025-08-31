@@ -9,7 +9,13 @@
 
   <!-- ヘッダー -->
   <div class="list-header">
-    <h1 class="title">商品一覧</h1>
+    <h1 class="title">
+      @if (!empty($keyword))
+      ”{{ $keyword }}” の商品一覧
+      @else
+      商品一覧
+      @endif
+    </h1>
     <a href="{{ route('products.register') }}" class="btn-add">＋商品を追加</a>
   </div>
 

@@ -16,14 +16,18 @@
       <div class="product-image-area">
         <label>商品画像</label><br>
 
-        <img id="preview"
-          src="{{ $product->image ? asset('storage/' . $product->image) : '' }}"
-          alt="プレビュー画像"
-          style="max-width: 200px; display: {{ $product->image ? 'block' : 'none' }}; margin-bottom:10px;">
-
-        <div class="file-input-group">
-          <input type="file" name="image" id="image">
+        <!-- 商品画像プレビュー -->
+        <div class="image-preview">
+          @if ($errors->has('image'))
+          {{-- バリデーションエラーがあれば画像は表示しない --}}
+          <img id="preview" src="" alt="" style="display:none;">
+          @else
+          {{-- エラーがなければ登録済み画像を表示 --}}
+          <img id="preview" src="{{ asset('storage/'.$product->image) }}" alt="商品画像">
+          @endif
         </div>
+        <!-- ファイル選択 -->
+        <input type="file" id="image" name="image" accept="image/*">
         <div class="create-form__error-message">
           @error('image')
           {{ $message }}
@@ -85,14 +89,14 @@
 
   </form>
 
-      <form action="{{ route('products.destroy', $product) }}" method="POST" style="margin-top:15px;">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn-delete">
-          <img src="{{ asset('images/trash.png') }}" alt="削除" class="icon-trash">
-        </button>
-      </form>
-    </div>
+  <form action="{{ route('products.destroy', $product) }}" method="POST" style="margin-top:15px;">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn-delete">
+      <img src="{{ asset('images/trash.png') }}" alt="削除" class="icon-trash">
+    </button>
+  </form>
+</div>
 </div>
 
 <!-- Loading script for image confirmation -->
