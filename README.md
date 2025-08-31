@@ -57,9 +57,13 @@ nginx version: nginx/1.21.1
 
 
 ## URL
-お問い合わせフォーム：http://localhost/
+商品一覧：http://localhost/products/
 
-管理画面：http://localhost/admin
+商品詳細：http://localhost/products/{productId}
+
+商品登録：/products/register
+http://localhost/products/create
+
 
 ## ER図
 ![ER図](ER.drawio.png)

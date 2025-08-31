@@ -83,34 +83,60 @@
     resize: vertical;
 }
 
-/* ボタン */
+
+/* ボタン全体を横並び */
 .button-group {
     display: flex;
-    gap: 15px;
     justify-content: center;
+    /* 全体を中央寄せにしたい場合 */
+    gap: 12px;
+    /* ボタン同士の基本的な間隔 */
 }
 
-.button-group a,
-.button-group button {
-    padding: 10px 20px;
-    border: none;
+/* 特定の間隔を広げる（保存と削除の間） */
+.btn-save {
+    margin-right: 80px;
+    /* 「保存」ボタンと削除ボタンの間だけ広めに */
+}
+
+/* ボタンの装飾 */
+.btn-back,
+.btn-save,
+.btn-delete {
+    background-color: #e1dfdf;
+    padding: 8px 16px;
     border-radius: 6px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+    font-size: 14px;
     cursor: pointer;
 }
 
-.btn-back {
-    background-color: #777;
-}
-
+/* 戻るボタン と 変更を保存ボタン は大きさをそろえる */
+.btn-back,
 .btn-save {
-    background-color: #28a745;
+    border: none;               /* 枠を消す */
+    width: 120px;
+    height: 40px;
+    text-align: center;         /* 横中央 */
+    line-height: 20px;          /* 高さと同じにして縦中央 */
 }
 
+/* 変更を保存ボタンは背景色を変更 */
+.btn-save{
+    background-color: #f5c900;
+}
+
+/* 削除ボタンは画像のみ */
 .btn-delete {
-    background-color: #dc3545;
+    background: none;
+    border: none;
+    padding: 4px;
+}
+
+/* アイコンサイズ */
+.icon-trash {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
 
 

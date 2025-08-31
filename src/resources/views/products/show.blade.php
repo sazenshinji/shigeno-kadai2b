@@ -82,35 +82,20 @@
     <div class="button-group">
       <a href="{{ route('products.index') }}" class="btn-back">戻る</a>
       <button type="submit" class="btn-save">変更を保存</button>
+
+  </form>
+
+      <form action="{{ route('products.destroy', $product) }}" method="POST" style="margin-top:15px;">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn-delete">
+          <img src="{{ asset('images/trash.png') }}" alt="削除" class="icon-trash">
+        </button>
+      </form>
     </div>
-  </form>
-
-  <form action="{{ route('products.destroy', $product) }}" method="POST" style="margin-top:15px;">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-danger">削除</button>
-  </form>
-
 </div>
 
-<script>
-  document.getElementById('image').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    const preview = document.getElementById('preview');
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        preview.src = e.target.result;
-        preview.style.display = 'block';
-      }
-      reader.readAsDataURL(file);
-    } else {
-      // ファイル選択をキャンセルした場合は非表示にする
-      preview.src = '';
-      preview.style.display = 'none';
-    }
-  });
-</script>
+<!-- Loading script for image confirmation -->
+<script src="{{ asset('js/update_img_script.js') }}"></script>
 
 @endsection
