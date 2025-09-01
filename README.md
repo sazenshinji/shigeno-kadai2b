@@ -5,8 +5,9 @@
 ## 環境構築
 リポジトリからダウンロード
 ```
-git clone https://github.com/sazenshinji/shigeno-kadai1.git
+git clone https://github.com/sazenshinji/shigeno-kadai2a.git
 ```
+
 「.env.example」をコピーして「.env」を作成し DBの設定を変更
 ```
 cp .env.example .env
@@ -45,6 +46,12 @@ srcディレクトリにあるstorageディレクトリに権限を設定
 ```
 chmod -R 777 storage
 ```
+
+シンボリックリンクを作成
+```
+php artisan storage:link
+```
+
 
 ## 使用技術(実行環境)
 PHP 7.4.9 (cli) (built: Sep  1 2020 02:33:08) ( NTS )
