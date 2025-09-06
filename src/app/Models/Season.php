@@ -11,9 +11,9 @@ class Season extends Model
 
     protected $fillable = ['name'];
 
-    // 1対多（Season -> Product）
+    // 多対多（Season -> Product）
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class, 'product_season');
     }
 }

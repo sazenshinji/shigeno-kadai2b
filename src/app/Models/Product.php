@@ -13,13 +13,12 @@ class Product extends Model
         'name',
         'price',
         'image',
-        'season_id',
         'description',
     ];
 
-    // 多対1（Product -> Season）
-    public function season()
+    // 多対多（Product -> Season）
+    public function seasons()
     {
-        return $this->belongsTo(Season::class);
+        return $this->belongsToMany(Season::class, 'product_season');
     }
 }
