@@ -1,27 +1,25 @@
 /* ページネーションのスタイル */
-  th {
-      background-color: #289ADC;
-      color: white;
-      padding: 5px 40px;
-  }
+th {
+    background-color: #289adc;
+    color: white;
+    padding: 5px 40px;
+}
 
-  tr:nth-child(odd) td {
-      background-color: #FFFFFF;
-  }
+tr:nth-child(odd) td {
+    background-color: #ffffff;
+}
 
-  td {
-      padding: 25px 40px;
-      background-color: #EEEEEE;
-      text-align: center;
-  }
+td {
+    padding: 25px 40px;
+    background-color: #eeeeee;
+    text-align: center;
+}
 
-  svg.w-5.h-5 {
-      /*paginateメソッドの矢印の大きさ調整のために追加*/
-      width: 30px;
-      height: 30px;
-  }
-
-
+svg.w-5.h-5 {
+    /*paginateメソッドの矢印の大きさ調整のために追加*/
+    width: 30px;
+    height: 30px;
+}
 
 /* コンテナ全体 */
 .product-list-container {
@@ -53,7 +51,6 @@
 .list-header .btn-add:hover {
     background: #ffa929;
 }
-
 
 /* コンテンツ全体 */
 .content-wrapper {
@@ -111,8 +108,6 @@
     font-size: 14px;
     margin-top: 5px;
 }
-
-
 
 /* 商品一覧カードのレイアウト */
 .product-grid {
