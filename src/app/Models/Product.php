@@ -16,9 +16,14 @@ class Product extends Model
         'description',
     ];
 
+<<<<<<< HEAD
     // 多対多（Product -> Season）
+=======
+    // 多対多リレーション
+>>>>>>> 676655f (2025.09.08 08.25 Update)
     public function seasons()
     {
         return $this->belongsToMany(Season::class, 'product_season');
     }
+
 }

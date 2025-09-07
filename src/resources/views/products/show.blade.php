@@ -54,20 +54,36 @@
         </div>
 
         <label>季節</label>
+
         <div class="season-radio">
-          @foreach ($seasons as $season)
-          <label>
-            <input type="radio" name="season_id" value="{{ $season->id }}"
-              {{ $product->season_id == $season->id ? 'checked' : '' }}>
-            {{ $season->name }}
-          </label>
+
+          @foreach($seasons as $season)
+          <input type="checkbox" name="seasons[]" value="{{ $season->id }}"> {{ $season->name }}
           @endforeach
+
+          <!-- @foreach ($seasons as $season) -->
+          <!-- <label> -->
+            <!-- <input type="radio" name="season_id" value="{{ $season->id }}" -->
+              <!-- {{ $product->season_id == $season->id ? 'checked' : '' }}> -->
+            <!-- {{ $season->name }} -->
+          <!-- </label> -->
+          <!-- @endforeach -->
+
           <div class="create-form__error-message">
-            @error('season_id')
+            @error('seasons')
             {{ $message }}
             @enderror
           </div>
+
+
+          <!-- <div class="create-form__error-message"> -->
+          <!-- @error('season_id') -->
+          <!-- {{ $message }} -->
+          <!-- @enderror -->
+          <!-- </div> -->
+
         </div>
+
       </div>
     </div>
 

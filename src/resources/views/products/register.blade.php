@@ -36,15 +36,21 @@
     <!-- 季節 -->
     <div class="form-group">
       <label>季節</label> <span class="create-form__required">必須</span><br>
-      @foreach ($seasons as $season)
-      <label>
-        <input type="radio" name="season_id" value="{{ $season->id }}"
-          {{ old('season_id') == $season->id ? 'checked' : '' }}>
-        {{ $season->name }}
-      </label>
+
+      @foreach($seasons as $season)
+      <input type="checkbox" name="seasons[]" value="{{ $season->id }}"> {{ $season->name }}
       @endforeach
+
+      <!-- @foreach ($seasons as $season) -->
+      <!-- <label> -->
+      <!-- <input type="radio" name="season_id" value="{{ $season->id }}" -->
+      <!-- {{ old('season_id') == $season->id ? 'checked' : '' }}> -->
+      <!-- {{ $season->name }} -->
+      <!-- </label> -->
+      <!-- @endforeach -->
+
       <div class="create-form__error-message">
-        @error('season_id')
+        @error('seasons')
         {{ $message }}
         @enderror
       </div>

@@ -14,7 +14,7 @@ class ProductController extends Controller
     // 一覧表示
     public function index(Request $request)
     {
-        $query = Product::with('season');
+        $query = Product::with('seasons');
 
         // 商品名検索（部分一致）
         if ($request->filled('keyword')) {
@@ -56,13 +56,15 @@ class ProductController extends Controller
             $imagePath = $request->file('image')->store('products', 'public');
         }
 
-        Product::create([
+        $product = Product::create([
             'name'        => $request->name,
             'price'       => $request->price,
             'description' => $request->description,
-            'season_id'   => $request->season_id,
             'image'       => $imagePath,
         ]);
+
+        // 季節の中間テーブルに保存
+        $product->seasons()->attach($request->seasons);
 
         return redirect()->route('products.index')->with('success', '商品を登録しました');
     }
@@ -90,9 +92,11 @@ class ProductController extends Controller
             'name'        => $request->name,
             'price'       => $request->price,
             'description' => $request->description,
-            'season_id'   => $request->season_id,
             'image'       => $product->image,
         ]);
+
+        // 季節の中間テーブルを更新
+        $product->seasons()->sync($request->seasons);
 
         return redirect()->route('products.index')->with('success', '商品情報を更新しました');
     }

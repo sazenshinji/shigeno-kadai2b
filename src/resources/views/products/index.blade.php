@@ -19,6 +19,7 @@
     <a href="{{ route('products.register') }}" class="btn-add">＋商品を追加</a>
   </div>
 
+
   <div class="content-wrapper">
     <!-- 左サイドバー -->
     <div class="sidebar">
@@ -58,6 +59,7 @@
     <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
+    
     <!-- メイン商品一覧 -->
     <div class="product-grid">
       @forelse ($products as $product)
@@ -80,8 +82,6 @@
       <p>商品が見つかりませんでした。</p>
       @endforelse
     </div>
-
-
 
   </div>
 
