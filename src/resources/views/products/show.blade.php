@@ -54,9 +54,7 @@
         </div>
 
         <label>季節</label>
-
         <div class="season-radio">
-
           @foreach($seasons as $season)
           <label>
             <input type="checkbox" name="seasons[]" value="{{ $season->id }}"
@@ -69,9 +67,7 @@
             {{ $message }}
             @enderror
           </div>
-
         </div>
-
       </div>
     </div>
 
