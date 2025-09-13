@@ -7,7 +7,7 @@
 @section('content')
 <div class="product-detail-container">
 
-  <form action="{{ route('products.update', $product) }}" method="POST" enctype="multipart/form-data">
+  <form action="/products/{{ $product->id }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -84,12 +84,12 @@
 
     {{-- ボタン --}}
     <div class="button-group">
-      <a href="{{ route('products.index') }}" class="btn-back">戻る</a>
+      <a href="/products" class="btn-back">戻る</a>
       <button type="submit" class="btn-save">変更を保存</button>
 
   </form>
 
-  <form action="{{ route('products.destroy', $product) }}" method="POST" style="margin-top:15px;">
+  <form action="/products/{{ $product->id }}" method="POST" style="margin-top:15px;">
     @csrf
     @method('DELETE')
     <button type="submit" class="btn-delete">

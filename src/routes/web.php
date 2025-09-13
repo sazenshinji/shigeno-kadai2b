@@ -20,7 +20,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 
 /* 商品登録画面 */
 Route::get('/products/register', [ProductController::class, 'register'])->name('products.register');
-Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::post('/products/register', [ProductController::class, 'store'])->name('products.store');
 
 // 詳細（編集画面）
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');

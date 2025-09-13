@@ -8,7 +8,7 @@
 <div class="form-container">
   <h1>商品登録</h1>
 
-  <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+  <form action="/products/register" method="POST" enctype="multipart/form-data">
     @csrf
 
     <!-- 商品名 -->
@@ -75,7 +75,7 @@
       </div>
     </div>
 
-    <a href="{{ route('products.index') }}" class="btn-back">戻る</a>
+    <a href="/products" class="btn-back">戻る</a>
     <button type="submit" class="btn-submit">登録</button>
 
   </form>

@@ -16,7 +16,7 @@
       商品一覧
       @endif
     </h1>
-    <a href="{{ route('products.register') }}" class="btn-add">＋商品を追加</a>
+    <a href="/products/register" class="btn-add">＋商品を追加</a>
   </div>
 
 
@@ -24,7 +24,7 @@
     <!-- 左サイドバー -->
     <div class="sidebar">
       <!-- 検索フォーム -->
-      <form action="{{ route('products.index') }}" method="GET" class="search-form">
+      <form action="/products" method="GET" class="search-form">
         <input type="text" name="keyword" placeholder="商品名で検索" value="{{ old('keyword', $keyword) }}">
         <button type="submit">検索</button>
       </form>
@@ -32,7 +32,7 @@
       <!-- 並べ替え -->
       <div class="sort-section">
         <p>価格順で表示</p>
-        <form action="{{ route('products.index') }}" method="GET">
+        <form action="/products" method="GET">
           {{-- 検索キーワードを維持 --}}
           <input type="hidden" name="keyword" value="{{ $keyword }}">
           <select name="sort" onchange="this.form.submit()">
@@ -45,11 +45,11 @@
         {{-- 現在のソートラベル --}}
         @if ($sort === 'high')
         <span class="badge bg-primary">高い順に表示
-          <a href="{{ route('products.index', ['keyword' => $keyword]) }}" class="text-white ms-1">×</a>
+          <a href="/products?keyword={{ $keyword }}" class="text-white ms-1">×</a>
         </span>
         @elseif ($sort === 'low')
         <span class="badge bg-primary">低い順に表示
-          <a href="{{ route('products.index', ['keyword' => $keyword]) }}" class="text-white ms-1">×</a>
+          <a href="/products?keyword={{ $keyword }}" class="text-white ms-1">×</a>
         </span>
         @endif
       </div>
@@ -59,11 +59,11 @@
     <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    
+
     <!-- メイン商品一覧 -->
     <div class="product-grid">
       @forelse ($products as $product)
-      <a href="{{ route('products.show', $product) }}" class="product-card-link">
+      <a href="/products/{{ $product->id }}" class="product-card-link">
         <div class="product-card">
           <div class="product-image">
             @if ($product->image)

@@ -32,6 +32,6 @@ class MogitateTest extends TestCase
             'description' => '群馬 渋川 岸リンゴ園'
         ];
         $response = $this->post('/products/register', $product);
-        $this->assertDatabaseHas('products', $product);
+        $this->assertDatabaseHas('products', $product2);
     }
 }

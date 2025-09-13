@@ -66,7 +66,7 @@ class ProductController extends Controller
         // 季節の中間テーブルに保存
         $product->seasons()->attach($request->seasons);
 
-        return redirect()->route('products.index')->with('success', '商品を登録しました');
+        return redirect('/products')->with('success', '商品を登録しました');
     }
 
     // 商品詳細（編集画面）
@@ -98,7 +98,7 @@ class ProductController extends Controller
         // 季節の中間テーブルを更新
         $product->seasons()->sync($request->seasons);
 
-        return redirect()->route('products.index')->with('success', '商品情報を更新しました');
+        return redirect('/products')->with('success', '商品情報を更新しました');
     }
 
     // 商品削除処理
@@ -109,6 +109,6 @@ class ProductController extends Controller
         }
         $product->delete();
 
-        return redirect()->route('products.index')->with('success', '商品を削除しました');
+        return redirect('/products')->with('success', '商品を削除しました');
     }
 }
