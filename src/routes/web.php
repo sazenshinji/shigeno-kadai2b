@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SpProductController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,8 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* 商品一覧画面 */
+/* 一般商品一覧画面 */
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+/* 特別商品一覧（要認証） */
+Route::middleware(['auth'])->group(function () {
+    Route::get('/products/sp', [SpProductController::class, 'index'])->name('products.sp.index');
+});
 
 /* 商品登録画面 */
 Route::get('/products/register', [ProductController::class, 'register'])->name('products.register');
