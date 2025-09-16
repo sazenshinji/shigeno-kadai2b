@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SpProductController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,12 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 /* 特別商品一覧（要認証） */
 Route::middleware(['auth'])->group(function () {
     Route::get('/products/sp', [SpProductController::class, 'index'])->name('products.sp.index');
+});
+
+/* ユーザープロファイル */
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile/create', [ProfileController::class, 'create'])->name('profile.create');
+    Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store');
 });
 
 /* 商品登録画面 */

@@ -16,10 +16,8 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('address');
-            $table->enum('gender', ['male', 'female', 'other']);
-            $table->unsignedTinyInteger('age');
-            $table->string('phone', 30);
+            $table->enum('gender', ['男性', '女性', 'その他']);
+            $table->date('birthday'); // "YYYY-MM" を文字列で保存
             $table->timestamps();
         });
     }
