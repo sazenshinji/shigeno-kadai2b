@@ -4,6 +4,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SpProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,13 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 /* 特別商品一覧（要認証） */
 Route::middleware(['auth'])->group(function () {
     Route::get('/products/sp', [SpProductController::class, 'index'])->name('products.sp.index');
+});
+
+/* 特別商品詳細 */
+Route::get('/products/sp/{product}', [SpProductController::class, 'spShow'])->name('products.sp.show');
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/products/sp/{id}/comment', [CommentController::class, 'store'])->name('products.sp.comment.store');
 });
 
 /* ユーザープロファイル */

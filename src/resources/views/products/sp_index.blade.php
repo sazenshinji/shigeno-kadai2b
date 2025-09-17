@@ -29,16 +29,18 @@
     @foreach($products as $product)
     <div class="col-md-4 mb-3">
       <div class="card shadow-sm">
-        <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="{{ $product->name }}">
+        <a href="{{ route('products.sp.show', $product) }}">
+          <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="{{ $product->name }}">
+        </a>
         <div class="card-body">
           <h5>{{ $product->name }}</h5>
           <p>価格: ¥{{ number_format($product->price) }}</p>
           <!-- <p>{{ $product->description }}</p> -->
           <!-- <p> -->
-            <!-- 季節: -->
-            <!-- @foreach($product->seasons as $season) -->
-            <!-- <span class="badge bg-info">{{ $season->name }}</span> -->
-            <!-- @endforeach -->
+          <!-- 季節: -->
+          <!-- @foreach($product->seasons as $season) -->
+          <!-- <span class="badge bg-info">{{ $season->name }}</span> -->
+          <!-- @endforeach -->
           </p>
         </div>
       </div>

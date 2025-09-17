@@ -12,8 +12,14 @@ class SpProductController extends Controller
     {
         // eager loading seasons を利用
         $products = SpProduct::with('seasons')->paginate(6);
-
-        return view('products.sp_index', compact('products'));
+        $user = auth()->user();
+        return view('products.sp_index', compact('products', 'user'));
+    }
+    // 特別商品詳細
+    public function spShow(SpProduct $product)
+    {
+        $product->load('seasons'); // 季節情報をロード
+        return view('products.sp_show', compact('product'));
     }
 }
 

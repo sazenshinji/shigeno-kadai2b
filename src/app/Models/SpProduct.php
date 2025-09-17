@@ -15,4 +15,9 @@ class SpProduct extends Model
     {
         return $this->belongsToMany(Season::class, 'sp_product_season');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
