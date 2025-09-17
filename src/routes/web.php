@@ -5,6 +5,8 @@ use App\Http\Controllers\SpProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +52,10 @@ Route::put('/products/{product}', [ProductController::class, 'update'])->name('p
 
 // 削除
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+Route::get('/register', [RegisterController::class, 'show'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/login', [LoginController::class, 'show'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
