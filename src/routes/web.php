@@ -19,26 +19,19 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-/* 一般商品一覧画面 */
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
-/* 特別商品一覧（要認証） */
 Route::middleware(['auth'])->group(function () {
+    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/products/sp', [SpProductController::class, 'index'])->name('products.sp.index');
+    Route::post('/products/sp/{id}/comment', [CommentController::class, 'store'])->name('products.sp.comment.store');
+    Route::get('/profile/create', [ProfileController::class, 'create'])->name('profile.create');
+    Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store');
 });
+
 
 /* 特別商品詳細 */
 Route::get('/products/sp/{product}', [SpProductController::class, 'spShow'])->name('products.sp.show');
 
-Route::middleware(['auth'])->group(function () {
-    Route::post('/products/sp/{id}/comment', [CommentController::class, 'store'])->name('products.sp.comment.store');
-});
-
-/* ユーザープロファイル */
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profile/create', [ProfileController::class, 'create'])->name('profile.create');
-    Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store');
-});
 
 /* 商品登録画面 */
 Route::get('/products/register', [ProductController::class, 'register'])->name('products.register');

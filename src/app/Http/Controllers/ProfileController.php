@@ -32,7 +32,8 @@ class ProfileController extends Controller
         );
 
         // ✅ プロファイル登録後に商品一覧特別画面へ
-        return redirect()->route('products.sp.index')
-            ->with('success', 'プロフィールを登録しました');
+        // return redirect()->route('products.sp.index')
+        // ->with('success', 'プロフィールを登録しました');
+        return redirect()->intended(route('products.index'));
     }
 }

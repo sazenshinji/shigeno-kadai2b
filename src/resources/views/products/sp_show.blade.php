@@ -51,7 +51,8 @@
           <h5>コメント一覧</h5>
           @forelse($product->comments()->orderBy('date','desc')->get() as $comment)
           <div class="d-flex justify-content-start align-items-center border-bottom py-2">
-            <small class="text-muted me-3">{{ $comment->date }}</small>
+            <!-- 年月日だけを表示 -->
+            <small class="text-muted me-3">{{ $comment->date->format('Y-m-d') }}</small>
             <small class="text-muted me-3">{{ $comment->user->name }}</small>
             <span>{{ $comment->comment }}</span>
           </div>

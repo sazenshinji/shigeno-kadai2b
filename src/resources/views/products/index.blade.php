@@ -17,8 +17,14 @@
       @endif
     </h1>
     <a href="/products/register" class="btn-add">＋商品を追加</a>
+
+
   </div>
 
+  <form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit" class="btn btn-danger">ログアウト</button>
+  </form>
 
   <div class="content-wrapper">
     <!-- 左サイドバー -->

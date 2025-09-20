@@ -11,7 +11,12 @@ class Comment extends Model
 
     protected $fillable = ['user_id', 'sp_product_id', 'comment', 'date'];
 
-    
+
+    protected $casts = [
+        'date' => 'datetime',
+    ];
+
+
     public function user()
     {
         return $this->belongsTo(User::class);

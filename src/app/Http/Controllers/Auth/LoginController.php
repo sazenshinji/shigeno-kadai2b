@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 
 class LoginController extends Controller
 {
@@ -17,7 +18,8 @@ class LoginController extends Controller
     {
         if (Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
             $request->session()->regenerate();
-            return redirect()->route('products.sp.index')->with('success', 'ログインしました。');
+            // return redirect()->intended(RouteServiceProvider::HOME)->with('success', 'ログインしました。');
+            return redirect()->intended(RouteServiceProvider::HOME);
         }
 
         return back()->withErrors([

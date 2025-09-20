@@ -7,7 +7,7 @@
 リポジトリからダウンロード
 
 ```
-git clone https://github.com/sazenshinji/shigeno-kadai2a.git
+git clone https://github.com/sazenshinji/shigeno-kadai2b.git
 ```
 
 「.env.example」をコピーして「.env」を作成し DB の設定を変更
@@ -87,6 +87,26 @@ nginx version: nginx/1.21.1
 
 商品登録：http://localhost/products/register
 
+特別商品一覧：http://localhost/products/sp/
+
+特別商品詳細：http://localhost/products/sp/{product}/
+
+ログイン：http://localhost/login
+
 ## ER 図
 
 ![ER図](ER.drawio.png)
+
+## 2025 年 9 月 20 日 修正点
+
+・コメント一覧表示で、秒まで表示しないケースが多いと思われる。
+　表示順は、時分秒まで考慮するが、表示は年月日までに修正
+・ログイン画面、会員登録画面の Email のバリデーションで、
+　 Email 形式でないとき、ブラウザーのエラーが出て、FormRequest の
+　エラーメッセージが抑制される件の修正
+・PHPUnit のテストメソッド名を、「test\_テスト内容」に変更
+・「tests/Feature」内の古いテストファイルの削除
+・Web.php(ルーティング)で認証を掛けるページを一つの middleware に集約
+・/products アクセスしログイン後の遷移先が「/products/sp」になっていたのを
+　「/products」に修正
+・ER 図の修正

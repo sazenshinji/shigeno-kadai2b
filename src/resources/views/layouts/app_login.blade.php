@@ -16,23 +16,10 @@
     <div class="header__inner">
       <div class="header-utilities">
         <a class="header__logo" href="/">
-          Attendance Management
+          Mogitate
         </a>
         <nav>
           <ul class="header-nav">
-
-            @if (Auth::check())
-
-            <!-- <li class="header-nav__item"> -->
-            <div class="header-nav__item">
-              <form class="form" action="/logout" method="post">
-                @csrf
-                <button class="header-nav__button">logout</button>
-              </form>
-            </div>
-
-            @endif
-
           </ul>
         </nav>
       </div>

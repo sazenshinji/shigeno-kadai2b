@@ -44,7 +44,7 @@ class FortifyServiceProvider extends ServiceProvider
             return new class implements \Laravel\Fortify\Contracts\LogoutResponse {
                 public function toResponse($request)
                 {
-                    return redirect('/products/sp'); // ログイン画面へ
+                    return redirect('/login'); // ログイン画面へ
                 }
             };
         });

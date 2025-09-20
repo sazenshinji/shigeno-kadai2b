@@ -19,7 +19,7 @@ class CommentController extends Controller
             'user_id' => Auth::id(),
             'sp_product_id' => $id,
             'comment' => $request->comment,
-            'date' => now()->toDateString(),
+            'date' => now(),
         ]);
 
         return redirect()->route('products.sp.show', $id)->with('success', 'コメントを投稿しました。');

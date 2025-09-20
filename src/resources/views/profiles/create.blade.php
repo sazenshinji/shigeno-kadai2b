@@ -1,25 +1,42 @@
 @extends('layouts.app_login')
 
-@section('content')
-<div class="container">
-  <h2>プロファイル入力</h2>
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+@endsection
 
-  <form method="POST" action="{{ route('profile.store') }}">
+@section('content')
+<div class="login-form__content">
+  <div class="login-form__heading">
+    <h2>プロファイル入力</h2>
+  </div>
+
+  <form class="form" method="POST" action="{{ route('profile.store') }}">
     @csrf
 
-    <div class="mb-3">
-      <label>性別</label><br>
-      <input type="radio" name="gender" value="男性"> 男性
-      <input type="radio" name="gender" value="女性"> 女性
-      <input type="radio" name="gender" value="その他"> その他
+    <div class="form__group">
+      <div class="form__group-title">
+        <label>性別</label><br>
+      </div>
+      <div class="form__group-content">
+        <input type="radio" name="gender" value="男性"> 男性
+        <input type="radio" name="gender" value="女性"> 女性
+        <input type="radio" name="gender" value="その他"> その他
+      </div>
     </div>
 
-    <div class="mb-3">
-      <label>誕生日</label><br>
-      <input type="date" name="birthday" required>
+    <div class="form__group">
+      <div class="form__group-title">
+        <label>誕生日</label><br>
+      </div>
+      <div class="form__group-content">
+        <input type="date" name="birthday" required>
+      </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">登録</button>
+    <div class="form__button">
+      <button class="form__button-submit" type="submit">登録</button>
+    </div>
+
   </form>
 </div>
 @endsection
